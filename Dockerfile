@@ -1,20 +1,20 @@
-# Use an official Ubuntu as a parent image
+# Use the official Alpine image as a parent image
 FROM ubuntu:20.04
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
-ENV LANG=C.UTF-8
+ENV LANG=C.UTF-8 \
+    CC=gcc \
+    CXX=g++ 
 
 # Install dependencies
 RUN apt-get update && \
     apt-get install -y \
-    build-essential \
     cmake \
+    g++ \
     git \
-    wget \
     libssl-dev \
     zlib1g-dev \
-    libboost-all-dev \
     libjsoncpp-dev \
     uuid-dev \
     libsqlite3-dev \
